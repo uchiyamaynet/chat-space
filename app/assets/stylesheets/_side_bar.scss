@@ -6,6 +6,7 @@
 
 .fa-sm {
   margin-left: 5px;
+  color: white;
 }
 
 .side-header{
@@ -15,19 +16,19 @@
   align-items: center;
   padding: 0 20px;
 
-  .side-header__box{
+  &__box{
   display: flex;
   justify-content: space-between;
   width: 100%;
   font-weight: bold;
   }
 
-  .side-header__box__menu{
+  &__box__menu{
   display: flex;
-  padding-top: 5px;
+  //padding-top: 5px;
   }
   
-  .side-header__box__menu__new-group{
+  &__box__menu__new-group{
   margin-left: 0.3rem;
   }
 }
@@ -38,18 +39,16 @@
   padding: 20px 20px 0;
   overflow: scroll;
 
-  .groups__group{
+  &__group{
   margin-bottom: 40px;
 
-    .group__group-name {
+    &__name {
     font-size: 15px;
     margin-bottom: 5px;
     }
-  
-    .group__latest-message {
-    font-size: 11px;
+
+    &__latest-message {
+      font-size: 11px;
     }
   }
 }
-
-
