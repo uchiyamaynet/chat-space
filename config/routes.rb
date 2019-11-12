@@ -1,8 +1,10 @@
 # ルーティングを追加
 Rails.application.routes.draw do
   devise_for :users
-  root 'messages#index'
+  # root 'messages#index'
+  root 'groups#index'
   resources :users, only: [:edit, :update]
+  resources :groups, only: [:new, :create, :edit, :update]
 end
 
 # Rails.application.routes.draw do
