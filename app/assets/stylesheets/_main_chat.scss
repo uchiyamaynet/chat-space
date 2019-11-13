@@ -40,6 +40,10 @@
   } 
 }
 
+.btn{
+  color: #38aef0;
+}
+
 
 
 .messages {
@@ -72,6 +76,10 @@
   }
 }
 
+.message{
+  padding-bottom: 40px;
+}
+
 
 
 .form{
@@ -86,7 +94,7 @@
     width: 100px;
     height: 50px;
     padding: 0 30px;
-    margin-left: 25px;
+    margin-left: 20px;
     background-color: #38aef0;
     color: white;
     cursor: pointer;
@@ -107,8 +115,8 @@
     &__image {
     font-size: 1.3rem;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 136px;
     cursor: pointer;
     }
   

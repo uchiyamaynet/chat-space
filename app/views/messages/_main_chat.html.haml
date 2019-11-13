@@ -1,22 +1,47 @@
 .chat-main
   .main-header
     .main-header__left-box
-      %h2.main-header__left-box__current-group test
-      %ul.main-header__left-box__member-list Member：
-    .main-header__edit-btn Edit
+      %h2.main-header__left-box__current-group
+        = @group.name
+      %ul.main-header__left-box__member-list
+        Member : 
+        = current_user.name
+    .main-header__edit-btn
+      = link_to edit_group_path(@group) do
+        .btn
+          Edit
+    -# .main-header__edit-btn Edit
 
+  -# .messages
+  -#   = render @messages
   .messages
-    .message
-      .message__upper__info  
-        %p.message__upper__info__talker ウチヤマ
-        %p.message__upper__info__date 2019/11/07(Thu) 18:59:32
-      %p.message__text テステス
+    = render partial: 'message', collection: @messages
 
   .form
-    %form.new_message
+    .new_message
       .input-box
-        %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}
-        %label.input-box__image{for: "message_image"}
-          %i.fa.fa-image
-          %input#message_image.input-box__image__file{name: "message[image]", type: "file"}
-      %input.submit-btn{name: "commit", type: "submit", value: "Send"}
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          
+          .form__mask
+            = f.label :image do
+              = icon('fas', 'image', class: 'input-box__image')
+              .input-box__image__file
+                = f.file_field :image
+            = f.submit 'Send', class: 'submit-btn'
+
+
+
+
+
+
+  -# .form
+  -#   %form.new_message
+  -#     .input-box
+  -#       %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}
+  -#       %label.input-box__image{for: "message_image"}
+  -#         %i.fa.fa-image
+  -#         %input#message_image.input-box__image__file{name: "message[image]", type: "file"}
+  -#     %input.submit-btn{name: "commit", type: "submit", value: "Send"}
+      
+
