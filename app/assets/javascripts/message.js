@@ -41,7 +41,6 @@ $(function(){
     var html = buildHTML(data);
     $('.messages').append(html);
     $('#new_message')[0].reset();
-    $('#message_content').val(''); //input内のメッセージを消しています。
     $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     $('.submit-btn').prop('disabled', false);
   })
