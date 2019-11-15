@@ -42,13 +42,12 @@ $(function(){
     $('.messages').append(html);
     $('#message_content').val(''); //input内のメッセージを消しています。
     $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+    $('.submit-btn').prop('disabled', false);
   })
   .fail(function(data){
-    alert('エラーが発生したためメッセージは送信できませんでした。')
-    $('.form__submit').prop('disabled', false);
-  })
-  .always(function(data){
-    $('.submit-btn').prop('disabled', false);　//ここで解除している
+    alert('エラーが発生したためメッセージは送信できませんでした。');
+    $('.submit-btn').prop('disabled', false);
+   })
 
 })
 })
