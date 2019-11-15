@@ -20,8 +20,8 @@
   .form
     .new_message
       .input-box
-        = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = form_for [@group, @message] do |f| 
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message', id: "new_message"
           
           .form__mask
             = f.label :image do
