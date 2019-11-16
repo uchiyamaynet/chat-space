@@ -10,18 +10,15 @@
       = link_to edit_group_path(@group) do
         .btn
           Edit
-    -# .main-header__edit-btn Edit
 
-  -# .messages
-  -#   = render @messages
   .messages
     = render partial: 'message', collection: @messages
 
   .form
     .new_message
       .input-box
-        = form_for [@group, @message] do |f|
-          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = form_for [@group, @message] do |f| 
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message', id: "new_message"
           
           .form__mask
             = f.label :image do
@@ -31,17 +28,5 @@
             = f.submit 'Send', class: 'submit-btn'
 
 
-
-
-
-
-  -# .form
-  -#   %form.new_message
-  -#     .input-box
-  -#       %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}
-  -#       %label.input-box__image{for: "message_image"}
-  -#         %i.fa.fa-image
-  -#         %input#message_image.input-box__image__file{name: "message[image]", type: "file"}
-  -#     %input.submit-btn{name: "commit", type: "submit", value: "Send"}
       
 
