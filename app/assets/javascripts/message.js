@@ -18,39 +18,34 @@ $(function(){
                     ${img}
                   </p>
                 </div>`
-  return html;
+    return html;
   }
 
-
   $("#new_message").on('submit', function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    var url = $(this).attr('action');
 
-  e.preventDefault();
-  var formData = new FormData(this);
-  var url = $(this).attr('action');
-
-  $.ajax({
-  url: url,
-  type: "POST",
-  data: formData,
-  dataType: 'json',
-  processData: false,
-  contentType: false
-  
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.messages').append(html);
+      $('#new_message')[0].reset();
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('.submit-btn').prop('disabled', false);
+    })
+    .fail(function(data){
+      alert('エラーが発生したためメッセージは送信できませんでした。');
+      $('.submit-btn').prop('disabled', false);
+    })
   })
-  .done(function(data){
-    var html = buildHTML(data);
-    $('.messages').append(html);
-    $('#new_message')[0].reset();
-    $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-    $('.submit-btn').prop('disabled', false);
-  })
-  .fail(function(data){
-    alert('エラーが発生したためメッセージは送信できませんでした。');
-    $('.submit-btn').prop('disabled', false);
-   })
-
 })
-})
-
 
 
