@@ -73,7 +73,7 @@ $(function() {
 
 
 
-
+//③コード経緯復習用残し、後から消す
 // $(function() {
 //   function addUser(user) {
 //     let html = `
@@ -129,7 +129,7 @@ $(function() {
 // });
 
 
-
+//②コード経緯復習用残し、後から消す
 // $(function() {
 
 //     $("#user-search-field").on("keyup", function() {
@@ -151,7 +151,7 @@ $(function() {
 
 
 
-
+//①コード経緯復習用残し、後から消す
 // $(function() {
 //   $("#user-search-field").on("keyup", function() {
 //     let input = $("#user-search-field").val();

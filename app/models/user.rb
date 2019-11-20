@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   def self.search(input, id)
     return nil if input == ""
-    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id).limit(10)
+    User.where(['name LIKE ?', "%#{input}%"] ).where.not(id: id)
   end
 
   has_many :messages
@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 end
 
+# 経緯復習用残し、後から消す
 # class User < ApplicationRecord
 #   # Include default devise modules. Others available are:
 #   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
