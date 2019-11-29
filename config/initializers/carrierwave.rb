@@ -13,5 +13,6 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'deployappimagee'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/deployappimagee'
+  # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/deployappimagee'
+  config.asset_host = 'https://deployappimagee.s3.amazonaws.com'
 end
