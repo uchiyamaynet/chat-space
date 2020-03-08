@@ -5,7 +5,9 @@
         = @group.name
       %ul.main-header__left-box__member-list
         Member : 
-        = current_user.name
+        -#修正前 = current_user.name
+        - @group.users.each do |user|
+          = user.name
     .main-header__edit-btn
       = link_to edit_group_path(@group) do
         .btn
@@ -14,19 +16,30 @@
   .messages
     = render partial: 'message', collection: @messages
 
-  .form
-    .new_message
-      .input-box
-        = form_for [@group, @message] do |f| 
-          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message', id: "new_message"
+    
+
+  -# .form
+  -#   .new_message
+  -#     .input-box
+  -#       = form_for [@group, @message] do |f| 
+  -#         = f.text_field :content, class: 'input-box__text', placeholder: 'type a message', id: "new_message"
           
-          .form__mask
-            = f.label :image do
-              = icon('fas', 'image', class: 'input-box__image')
-              .input-box__image__file
-                = f.file_field :image
-            = f.submit 'Send', class: 'submit-btn'
+  -#         .form__mask
+  -#           = f.label :image do
+  -#             = fa_icon 'picture-o', class: 'icon'
+  -#             -# = icon('fas', 'image', class: 'input-box__image')
+  -#             .input-box__image__file
+  -#               = f.file_field :image
+  -#           = f.submit 'Send', class: 'submit-btn'
 
-
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', id: 'new_message', placeholder: 'type a message'
       
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'submit-btn'
+
 
